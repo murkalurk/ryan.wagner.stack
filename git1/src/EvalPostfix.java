@@ -1,8 +1,8 @@
 import java.io.*;
 /**
  * Postfix expression evaluation Class.
- * @author Muzu
- * @version 1.0 - 2/15/2013
+ * @author Ryan Wagner
+ * @version 1.0.1 - 2/15/2013
  */
 public class EvalPostfix{
 	private PrintWriter writer;
