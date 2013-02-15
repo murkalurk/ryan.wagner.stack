@@ -4,7 +4,7 @@ import java.io.*;
  * @author Ryan Wagner
  * @version 1.0.1 - 2/15/2013
  */
-public class InfixToPostfix{
+public class InfixToPostfix extends Driver{
 	private PrintWriter writer;
 	private int prior, prior2, i;
 	private String postfix = "", post2;

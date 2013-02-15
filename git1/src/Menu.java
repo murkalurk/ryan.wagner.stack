@@ -3,7 +3,7 @@
  * @author Ryan Wagner
  * @version 1.0.1 - 2/15/2013
  */
-public class Menu{
+public class Menu extends Driver{
 	/**
 	 * Empty constructor for the Menu class.
 	 */

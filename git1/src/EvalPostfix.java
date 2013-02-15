@@ -4,7 +4,7 @@ import java.io.*;
  * @author Ryan Wagner
  * @version 1.0.1 - 2/15/2013
  */
-public class EvalPostfix{
+public class EvalPostfix extends Driver implements EvalInterface{
 	private PrintWriter writer;
 	int prior, i, newN;
 	Object topOb, topOb2;
