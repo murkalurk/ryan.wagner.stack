@@ -1,7 +1,18 @@
+/**
+ * Menu Class
+ * @author Muzu
+ * @version 1.0.0 - 2/15/2013
+ */
 public class Menu{
-
-	public Menu(){
-	}
+	/**
+	 * Empty constructor for the Menu class.
+	 */
+	public Menu(){}
+	/**
+	 * 
+	 * @param choiceString		Takes in the input as a String.
+	 * @return					Returns the String if the first character is not 'Q.'
+	 */
 	public String getLine(String choiceString){
 		choiceString = choiceString.replaceAll(" ", "");
 		if(choiceString.charAt(0) == 'q'

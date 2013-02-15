@@ -1,6 +1,16 @@
 import java.io.*;
 import java.util.Scanner;
+/**
+ * Stack Lab Driver
+ * @author Muzu
+ * @version 1.0.0 - 2/15/2013
+ */
 public class Driver{
+	/**
+	 * 
+	 * @param args
+	 * @throws IOException		This program opens and closes files.
+	 */
 	public static void main(String[] args) throws IOException{
 		String input, inString;
 		PrintWriter writer = new PrintWriter(new FileWriter("csis.txt"));
