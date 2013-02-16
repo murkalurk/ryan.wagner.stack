@@ -54,7 +54,15 @@ User input (4*4+4+4+3)/9
 Output is: 44*4+4+3+9/
 Which equals: 3
 
+User input ((3^4)))
+Output is: Too many close parens!
+Which equals: 3
+
+User input (((3^4))
+Output is: Too many open parens!
+Which equals: 3
+
 User input Quit
-Output is: Quit
+Output is: 34^34^(Quit
 Which equals: 0
 

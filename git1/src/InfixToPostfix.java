@@ -6,7 +6,7 @@ import java.io.*;
  */
 public class InfixToPostfix extends Driver{
 	private PrintWriter writer;
-	private int prior, prior2, i;
+	private int prior, prior2, i, j;
 	private String postfix = "", post2;
 	private ObjectStack inS = new ObjectStack();
 	private Object myObj;
@@ -27,9 +27,7 @@ public class InfixToPostfix extends Driver{
 		compPrior(input);}
 		while(!inS.isEmpty())
 			postfix = postfix + inS.pop();
-		post2 = postfix;
-		writer.println(postfix);
-		postfix = "";}
+		jCheck();}
 	/**
 	 * Retrieves the priority of the current character.
 	 * @param input			Reads the user's input.
@@ -43,6 +41,23 @@ public class InfixToPostfix extends Driver{
 		myObj = inS.top();
 		prior2 = getOrder((Character)myObj);}
 	/**
+	 * Checks if the parens match.
+	 */
+	public void jCheck(){
+		if(j > 0)
+			{writer.println("Too many open parens!");
+			j = 0;}
+		else if(j < 0)
+			{writer.println("Too many close parens!");
+			j = 0;}
+		else
+		{
+			post2 = postfix;
+			writer.println(postfix);
+			postfix = "";
+		}
+	}
+	/**
 	 * Checks the assigned priority of the current character and decides what to do.
 	 * @param input			Reads the user's input.
 	 */
@@ -50,9 +65,11 @@ public class InfixToPostfix extends Driver{
 		if(prior == 6)
 			postfix = postfix + input.charAt(i);
 		else if(prior == 0)
-			inS.push(input.charAt(i));
+			{inS.push(input.charAt(i));
+			j++;}
 		else if(prior == 4)
-			{closeParen();}
+			{j--;
+			closeParen();}
 		else 
 			popNpush(input);}
 	/**
