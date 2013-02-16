@@ -56,13 +56,9 @@ Which equals: 3
 
 User input ((3^4)))
 Output is: Too many close parens!
-Which equals: 3
 
 User input (((3^4))
 Output is: Too many open parens!
-Which equals: 3
 
 User input Quit
-Output is: 34^34^(Quit
-Which equals: 0
-
+Output is: Exit.

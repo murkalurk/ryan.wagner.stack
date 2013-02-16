@@ -6,7 +6,7 @@ import java.io.*;
  */
 public class InfixToPostfix extends Driver{
 	private PrintWriter writer;
-	private int prior, prior2, i, j;
+	private int prior, prior2, i, j, k;
 	private String postfix = "", post2;
 	private ObjectStack inS = new ObjectStack();
 	private Object myObj;
@@ -45,11 +45,21 @@ public class InfixToPostfix extends Driver{
 	 */
 	public void jCheck(){
 		if(j > 0)
-			{writer.println("Too many open parens!");
-			j = 0;}
+			{writer.println("Too many open parens!\n");
+			j = 0;
+			postfix = "Error!";
+			post2 = postfix;
+			postfix = "";}
 		else if(j < 0)
-			{writer.println("Too many close parens!");
-			j = 0;}
+			{writer.println("Too many close parens!\n");
+			j = 0;
+			postfix = "Error!";
+			post2 = postfix;
+			postfix = "";}
+		else if(k == 1)
+			{writer.println("Exit.");
+			postfix = "Error!";
+			post2 = postfix;}
 		else
 		{
 			post2 = postfix;
@@ -64,6 +74,8 @@ public class InfixToPostfix extends Driver{
 	public void compPrior(String input){
 		if(prior == 6)
 			postfix = postfix + input.charAt(i);
+		else if(prior == 5)
+			{k = 1;}
 		else if(prior == 0)
 			{inS.push(input.charAt(i));
 			j++;}
@@ -110,6 +122,7 @@ public class InfixToPostfix extends Driver{
 	 */
 	public int getOrder(char orderGet){
 		switch(orderGet){
+			case 'Q': return 5;
 			case ')':return 4;
 			case '^':return 3;
 			case '*':case '/':return 2;

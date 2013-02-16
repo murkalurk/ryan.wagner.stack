@@ -21,11 +21,12 @@ public class EvalPostfix extends Driver implements EvalInterface{
 	 * @param input			Reads the user's input.
 	 */
 	public void convPost(String input){
-		for(i=0;i<input.length();i++){
+		if(input != "Error!")
+		{for(i=0;i<input.length();i++){
 			prior = infix.getOrder(input.charAt(i));
 			doMath(input);}
 			writer.println("Which equals: " + newN + "\n");
-			newN = 0;}
+			newN = 0;}}
 	/**
 	 * If an operand is found, push it onto the stack, else pop the stack twice,
 	 * do math on the top two items, and push the result back onto the stack.

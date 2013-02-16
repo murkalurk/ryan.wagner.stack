@@ -18,4 +18,7 @@ public class Menu extends Driver{
 		if(choiceString.charAt(0) == 'q'
 		|| choiceString.charAt(0) == 'Q')
 			return "Quit";
-			return choiceString;}}
+			return choiceString;}
+	public void menuString(){
+		}
+	}
