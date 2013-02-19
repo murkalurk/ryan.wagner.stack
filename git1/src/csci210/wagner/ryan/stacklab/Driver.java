@@ -18,8 +18,8 @@ public class Driver{
 		PrintWriter writer = new PrintWriter(new FileWriter("csis.txt"));
 		Scanner fileScan = new Scanner(new File("infix.txt"));
 		IMenu menu = new Menu();
-		InfixInterface infix = new InfixToPostfix(writer);
-		EvalInterface evals = new EvalPostfix(writer);
+		InfixToPostfix infix = new InfixToPostfix(writer);
+		EvalPostfix evals = new EvalPostfix(writer);
 		do{
 			inString = fileScan.nextLine();
 			input = menu.getLine(inString);
