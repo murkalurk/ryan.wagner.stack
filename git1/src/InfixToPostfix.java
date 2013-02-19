@@ -61,9 +61,7 @@ public class InfixToPostfix implements InfixInterface{
 		prior2 = getOrder(input.charAt(i-1));
 		if(prior2 == 6)
 		{writer.println("One digit at a time, please!");
-		post3 = "Error!";
-		}
-	}
+		post3 = "Error!";}}
 	/**
 	 * Checks if the parens match.  If not, throws error messages and prevents the Evaluation class from executing.
 	 */
@@ -75,8 +73,7 @@ public class InfixToPostfix implements InfixInterface{
 		else if(k == 1)
 			exitO();
 		else
-			normO();
-	}
+			normO();}
 	/**
 	 * Actions executed when there are too many open parens.
 	 */
@@ -85,8 +82,7 @@ public class InfixToPostfix implements InfixInterface{
 		j = 0;
 		postfix = "Error!";
 		post2 = postfix;
-		postfix = "";
-	}
+		postfix = "";}
 	/**
 	 * Actions executed when there are too many close parens.
 	 */
@@ -95,23 +91,20 @@ public class InfixToPostfix implements InfixInterface{
 		j = 0;
 		postfix = "Error!";
 		post2 = postfix;
-		postfix = "";
-	}
+		postfix = "";}
 	/**
 	 * Actions executed when the input file reaches an exit signal.
 	 */
 	public void exitO(){
 		writer.println("Exit.");
-		post2 = "Error!";
-	}
+		post2 = "Error!";}
 	/**
 	 * Actions executed when there is nothing wrong in the program.
 	 */
 	public void normO(){
 		post2 = postfix;
 		writer.println(postfix);
-		postfix = "";
-	}
+		postfix = "";}
 	/**
 	 * Checks the assigned priority of the current character and decides what to do.
 	 * @param input			Reads the user's input.
@@ -182,5 +175,4 @@ public class InfixToPostfix implements InfixInterface{
 		if(post3 != "Error!")
 			return post2;
 		else
-			return post3;
-	}}
+			return post3;}}

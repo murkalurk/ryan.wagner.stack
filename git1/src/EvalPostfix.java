@@ -36,11 +36,16 @@ public class EvalPostfix implements EvalInterface{
 			cool.push(input.charAt(i));
 		else
 			{if(!cool.isEmpty())
-				{topOb2 = Integer.parseInt(String.valueOf(cool.pop()));
-				if(!cool.isEmpty())
-					topOb = Integer.parseInt(String.valueOf(cool.pop()));}
+				{popCool();}
 			newN = doConv(input.charAt(i));
 			cool.push(newN);}}
+	/**
+	 * Pops the top two values in the stack.
+	 */
+	public void popCool(){
+		topOb2 = Integer.parseInt(String.valueOf(cool.pop()));
+		if(!cool.isEmpty())
+			topOb = Integer.parseInt(String.valueOf(cool.pop()));}
 	/**
 	 * Do math on the popped values based on the chosen operator.
 	 * @param conv			Takes the operator as input.

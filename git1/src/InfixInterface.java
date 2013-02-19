@@ -13,5 +13,4 @@ public interface InfixInterface {
 	 * Gets value of postfix string.
 	 * @return			Returns the postfix string.
 	 */
-	public String getPost();
-}
+	public String getPost();}

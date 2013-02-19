@@ -9,5 +9,4 @@ public interface IMenu {
 	 * @param choiceString		Retrieves selected choice.
 	 * @return					Returns selected choice.
 	 */
-	public String getLine(String choiceString);
-}
+	public String getLine(String choiceString);}
