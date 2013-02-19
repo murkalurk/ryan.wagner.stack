@@ -60,5 +60,11 @@ Output is: Too many close parens!
 User input (((3^4))
 Output is: Too many open parens!
 
+User input (1^2(3*4)
+Output is: Too many open parens!
+
+User input 1**2
+Output is: Too many operators!
+
 User input Quit
-Output is: Exit.
+Output is: 

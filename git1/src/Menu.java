@@ -1,9 +1,8 @@
 /**
  * Menu Class
- * @author Ryan Wagner
- * @version 1.0.1 - 2/15/2013
+ * 
  */
-public class Menu extends Driver{
+public class Menu extends Driver implements IMenu{
 	/**
 	 * Empty constructor for the Menu class.
 	 */
@@ -19,6 +18,4 @@ public class Menu extends Driver{
 		|| choiceString.charAt(0) == 'Q')
 			return "Quit";
 			return choiceString;}
-	public void menuString(){
-		}
 	}

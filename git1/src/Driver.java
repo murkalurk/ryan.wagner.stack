@@ -3,7 +3,8 @@ import java.util.Scanner;
 /**
  * Stack Lab Driver
  * @author Ryan Wagner
- * @version 1.0.1 - 2/15/2013
+ * @author Student ID: 007222159
+ * @version 1.0.2 - 2/18/2013
  */
 public class Driver{
 	/**
@@ -15,16 +16,16 @@ public class Driver{
 		String input, inString;
 		PrintWriter writer = new PrintWriter(new FileWriter("csis.txt"));
 		Scanner fileScan = new Scanner(new File("infix.txt"));
-		Menu menu = new Menu();
-		InfixToPostfix infix = new InfixToPostfix(writer);
-		EvalPostfix eval = new EvalPostfix(writer);
+		IMenu menu = new Menu();
+		InfixInterface infix = new InfixToPostfix(writer);
+		EvalInterface evals = new EvalPostfix(writer);
 		do{
 			inString = fileScan.nextLine();
 			input = menu.getLine(inString);
 			writer.println("User input " + input);
 			infix.inputRead(input);
 			String postfix = infix.getPost();
-			eval.convPost(postfix);
+			evals.convPost(postfix);
 		}while (input != "Quit");
 		writer.close();
 		fileScan.close();}}

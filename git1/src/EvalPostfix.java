@@ -1,10 +1,9 @@
 import java.io.*;
 /**
  * Postfix expression evaluation Class.
- * @author Ryan Wagner
- * @version 1.0.1 - 2/15/2013
+ * 
  */
-public class EvalPostfix extends Driver implements EvalInterface{
+public class EvalPostfix implements EvalInterface{
 	private PrintWriter writer;
 	int prior, i, newN;
 	Object topOb, topOb2;

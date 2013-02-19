@@ -1,4 +1,4 @@
-public class ObjectStack extends Driver{
+public class ObjectStack implements ObjectIn{
 	private Object[] item;
 	private int top;
 	private int size;

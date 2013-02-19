@@ -1,13 +1,12 @@
 import java.io.*;
 /**
  * Infix Conversion Class
- * @author Ryan Wagner
- * @version 1.0.1 - 2/15/2013
+ * 
  */
-public class InfixToPostfix extends Driver{
+public class InfixToPostfix implements InfixInterface{
 	private PrintWriter writer;
 	private int prior, prior2, i, j, k;
-	private String postfix = "", post2;
+	private String postfix = "", post2, post3;
 	private ObjectStack inS = new ObjectStack();
 	private Object myObj;
 	/**
@@ -27,13 +26,16 @@ public class InfixToPostfix extends Driver{
 		compPrior(input);}
 		while(!inS.isEmpty())
 			postfix = postfix + inS.pop();
-		jCheck();}
+		if(post3 != "Error!")
+			jCheck();}
 	/**
-	 * Retrieves the priority of the current character.
+	 * Retrieves the priority of the current character and checks operators to find erroneous input.
 	 * @param input			Reads the user's input.
 	 */
 	public void doWork(String input){
-			prior = getOrder(input.charAt(i));}
+			prior = getOrder(input.charAt(i));
+			if(prior == 1 || prior == 2 || prior == 3)
+				operCheck(input);}
 	/**
 	 * Initializes prior2 to the value of the item at the top of the ObjectStack.
 	 */
@@ -41,31 +43,64 @@ public class InfixToPostfix extends Driver{
 		myObj = inS.top();
 		prior2 = getOrder((Character)myObj);}
 	/**
-	 * Checks if the parens match.
+	 * Checks if there are too many operators.
+	 * @param input			Reads the user's input.
+	 */
+	public void operCheck(String input){
+		prior2 = getOrder(input.charAt(i-1));
+		if(prior2 == 1 || prior2 == 2 || prior2 == 3)
+				{writer.println("Too many operators!\n");
+				postfix = "Error!";
+				post3 = postfix;
+				postfix = "";}}
+	/**
+	 * Checks if the parens match.  If not, throws error messages and prevents the Evaluation class from executing.
 	 */
 	public void jCheck(){
 		if(j > 0)
-			{writer.println("Too many open parens!\n");
-			j = 0;
-			postfix = "Error!";
-			post2 = postfix;
-			postfix = "";}
+			openP();
 		else if(j < 0)
-			{writer.println("Too many close parens!\n");
-			j = 0;
-			postfix = "Error!";
-			post2 = postfix;
-			postfix = "";}
+			closeP();
 		else if(k == 1)
-			{writer.println("Exit.");
-			postfix = "Error!";
-			post2 = postfix;}
+			exitO();
 		else
-		{
-			post2 = postfix;
-			writer.println(postfix);
-			postfix = "";
-		}
+			normO();
+	}
+	/**
+	 * Actions executed when there are too many open parens.
+	 */
+	public void openP(){
+		writer.println("Too many open parens!\n");
+		j = 0;
+		postfix = "Error!";
+		post2 = postfix;
+		postfix = "";
+	}
+	/**
+	 * Actions executed when there are too many close parens.
+	 */
+	public void closeP(){
+		writer.println("Too many close parens!\n");
+		j = 0;
+		postfix = "Error!";
+		post2 = postfix;
+		postfix = "";
+	}
+	/**
+	 * Actions executed when the input file reaches an exit signal.
+	 */
+	public void exitO(){
+		writer.println("Exit.");
+		postfix = "Error!";
+		post2 = postfix;
+	}
+	/**
+	 * Actions executed when there is nothing wrong in the program.
+	 */
+	public void normO(){
+		post2 = postfix;
+		writer.println(postfix);
+		postfix = "";
 	}
 	/**
 	 * Checks the assigned priority of the current character and decides what to do.
@@ -75,7 +110,7 @@ public class InfixToPostfix extends Driver{
 		if(prior == 6)
 			postfix = postfix + input.charAt(i);
 		else if(prior == 5)
-			{k = 1;}
+			k = 1;
 		else if(prior == 0)
 			{inS.push(input.charAt(i));
 			j++;}
@@ -134,5 +169,8 @@ public class InfixToPostfix extends Driver{
 	 * @return				Returns the postfix string as post2.
 	 */
 	public String getPost(){
-		return post2;
+		if(post3 != "Error!")
+			return post2;
+		else
+			return post3;
 	}}
