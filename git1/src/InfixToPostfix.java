@@ -66,8 +66,9 @@ public class InfixToPostfix implements InfixInterface{
 	public void intCheck(String input){
 		prior2 = getOrder(input.charAt(i-1));
 		if(prior2 == 6)
-		{writer.println("One digit at a time, please!");
-		post3 = "Error!";}}
+		{writer.println("One digit at a time, please!\n");
+		post3 = "Error!";
+		post2 = "Error!";}}
 	/**
 	 * Checks if the parens match.  If not, throws error messages and prevents the Evaluation class from executing.
 	 */
