@@ -1,7 +1,9 @@
 import java.io.*;
 /**
  * Infix Conversion Class
- * 
+ * @author Ryan Wagner
+ * @author Student ID: 007222159
+ * @version 1.0.2 - 2/18/2013
  */
 public class InfixToPostfix implements InfixInterface{
 	private PrintWriter writer;
