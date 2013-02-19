@@ -23,9 +23,10 @@ public class Driver{
 			inString = fileScan.nextLine();
 			input = menu.getLine(inString);
 			writer.println("User input " + input);
-			infix.inputRead(input);
-			String postfix = infix.getPost();
-			evals.convPost(postfix);
-		}while (input != "Q");
+			if(input != "Quit")
+				{infix.inputRead(input);
+				String postfix = infix.getPost();
+				evals.convPost(postfix);}
+		}while (input != "Quit");
 		writer.close();
 		fileScan.close();}}

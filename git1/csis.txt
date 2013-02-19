@@ -70,5 +70,9 @@ User input 1+1
 Output is: 11+
 Which equals: 2
 
-User input Q
-Output is: Exit.
+User input 12+1
+Output is: One digit at a time, please!
+21+
+Which equals: 3
+
+User input Quit

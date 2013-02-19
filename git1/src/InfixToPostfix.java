@@ -59,6 +59,10 @@ public class InfixToPostfix implements InfixInterface{
 				postfix = "Error!";
 				post3 = postfix;
 				postfix = "";}}
+	/**
+	 * Check for adjacent integers.
+	 * @param input			Reads the user's input.
+	 */
 	public void intCheck(String input){
 		prior2 = getOrder(input.charAt(i-1));
 		if(prior2 == 6)
