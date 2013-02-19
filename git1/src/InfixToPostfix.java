@@ -27,7 +27,9 @@ public class InfixToPostfix implements InfixInterface{
 		while(!inS.isEmpty())
 			postfix = postfix + inS.pop();
 		if(post3 != "Error!")
-			jCheck();}
+			jCheck();
+		post3 = "";
+		postfix = "";}
 	/**
 	 * Retrieves the priority of the current character and checks operators to find erroneous input.
 	 * @param input			Reads the user's input.
@@ -35,7 +37,9 @@ public class InfixToPostfix implements InfixInterface{
 	public void doWork(String input){
 			prior = getOrder(input.charAt(i));
 			if(prior == 1 || prior == 2 || prior == 3)
-				operCheck(input);}
+				operCheck(input);
+			else if(prior == 6 && i > 0)
+				intCheck(input);}
 	/**
 	 * Initializes prior2 to the value of the item at the top of the ObjectStack.
 	 */
@@ -53,6 +57,13 @@ public class InfixToPostfix implements InfixInterface{
 				postfix = "Error!";
 				post3 = postfix;
 				postfix = "";}}
+	public void intCheck(String input){
+		prior2 = getOrder(input.charAt(i-1));
+		if(prior2 == 6)
+		{writer.println("One digit at a time, please!");
+		post3 = "Error!";
+		}
+	}
 	/**
 	 * Checks if the parens match.  If not, throws error messages and prevents the Evaluation class from executing.
 	 */
@@ -91,8 +102,7 @@ public class InfixToPostfix implements InfixInterface{
 	 */
 	public void exitO(){
 		writer.println("Exit.");
-		postfix = "Error!";
-		post2 = postfix;
+		post2 = "Error!";
 	}
 	/**
 	 * Actions executed when there is nothing wrong in the program.

@@ -26,6 +26,6 @@ public class Driver{
 			infix.inputRead(input);
 			String postfix = infix.getPost();
 			evals.convPost(postfix);
-		}while (input != "Quit");
+		}while (input != "Q");
 		writer.close();
 		fileScan.close();}}

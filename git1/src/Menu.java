@@ -16,6 +16,6 @@ public class Menu extends Driver implements IMenu{
 		choiceString = choiceString.replaceAll(" ", "");
 		if(choiceString.charAt(0) == 'q'
 		|| choiceString.charAt(0) == 'Q')
-			return "Quit";
+			return "Q";
 			return choiceString;}
 	}

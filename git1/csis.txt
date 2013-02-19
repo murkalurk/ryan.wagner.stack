@@ -66,5 +66,9 @@ Output is: Too many open parens!
 User input 1**2
 Output is: Too many operators!
 
-User input Quit
-Output is: 
+User input 1+1
+Output is: 11+
+Which equals: 2
+
+User input Q
+Output is: Exit.
