@@ -1,3 +1,4 @@
+package csci210.wagner.ryan.stacklab;
 /**
  * Interface for Menu class.
  * @author Ryan Wagner

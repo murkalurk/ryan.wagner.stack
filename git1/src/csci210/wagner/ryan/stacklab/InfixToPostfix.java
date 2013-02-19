@@ -1,3 +1,4 @@
+package csci210.wagner.ryan.stacklab;
 import java.io.*;
 /**
  * Infix Conversion Class
@@ -144,7 +145,9 @@ public class InfixToPostfix implements InfixInterface{
 				else
 					break;}}}
 	/**
-	 * Normal popping/pushing functions.
+	 * If the priority of the current character is greater than that at the top of the stack, push onto the stack.
+	 * Otherwise, execute popCond().
+	 * If the Stack is empty, push onto the stack.
 	 * @param input			Reads the user's input.
 	 */
 	public void popNpush(String input){
@@ -153,13 +156,21 @@ public class InfixToPostfix implements InfixInterface{
 			if(prior > prior2)
 				inS.push(input.charAt(i));
 			else
-				{while(!inS.isEmpty() && prior <= prior2)
-					{getObject();
-					if(prior <= prior2)
-						postfix = postfix + inS.pop();}
-				inS.push(input.charAt(i));}}
-			else
-				inS.push(input.charAt(i));}
+				{popCond(input);}}
+		else
+			inS.push(input.charAt(i));}
+	/**
+	 * While the current character is of lower or equal priority to the top of the stack, pop the stack.
+	 * When this stops being true, push the current character onto the stack.
+	 * @param input			Reads the user's input.
+	 */
+	public void popCond(String input){
+		while(!inS.isEmpty() && prior <= prior2)
+		{getObject();
+		if(prior <= prior2)
+			postfix = postfix + inS.pop();}
+	inS.push(input.charAt(i));
+	}
 	/**
 	 * Computes the priority of the character assigned to orderGet.
 	 * @param orderGet		Reads the assigned character.

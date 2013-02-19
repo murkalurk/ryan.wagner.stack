@@ -1,3 +1,4 @@
+package csci210.wagner.ryan.stacklab;
 import java.io.*;
 import java.util.Scanner;
 /**
@@ -8,7 +9,7 @@ import java.util.Scanner;
  */
 public class Driver{
 	/**
-	 * 
+	 * Main constructor for class Driver.
 	 * @param args
 	 * @throws IOException		This program opens and closes files.
 	 */
